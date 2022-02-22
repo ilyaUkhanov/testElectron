@@ -25,7 +25,10 @@ const path = require('path');
 //   },
 // });
 
-chokidar.watch('.').on('all', (event, path) => {
+chokidar.watch('.', {
+    ignored: ["./node_modules", "./.git"],
+    ignoreInitial: true
+}).on('all', (event, path) => {
     console.log(event, path);
 });
 
